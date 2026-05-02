@@ -13,6 +13,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # IMPORTANTE: Esto evita que GitHub use el token por defecto del bot
+          persist-credentials: false 
 
       - name: Configure git
         run: |
@@ -20,7 +22,12 @@ jobs:
           git config user.name "GitHub Actions"
 
       - name: Push to personal repository
+        env:
+          # Usamos una variable de entorno para manejar el secreto de forma más limpia
+          MY_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         run: |
-          git remote add personal https://Andavidoc:${{ secrets.PERSONAL_TOKEN }}@github.com/Andavidoc/andres-davidocampo-portafolio.git
-          git fetch personal
+          # Eliminamos el remote si ya existe para evitar errores de "already exists"
+          git remote remove personal || true
+          # Usamos el token en la URL
+          git remote add personal https://Andavidoc:${MY_TOKEN}@github.com/Andavidoc/andres-davidocampo-portafolio.git
           git push personal HEAD:main --force

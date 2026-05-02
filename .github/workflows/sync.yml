@@ -14,7 +14,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Push to personal repository
+      - name: Configure git
         run: |
-          git remote add personal https://x-access-token:${{ secrets.PERSONAL_TOKEN }}@github.com/Andavidoc/andres-davidocampo-portafolio.git
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+
+      - name: Push to personal repository
+        env:
+          TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        run: |
+          git remote add personal https://Andavidoc:${TOKEN}@github.com/Andavidoc/andres-davidocampo-portafolio.git
           git push personal main --force

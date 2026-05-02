@@ -5,24 +5,31 @@ import KnowledgeSection from '@/components/sections/KnowledgeSection';
 import EducationSection from '@/components/sections/EducationSection';
 import PortfolioSection from '@/components/sections/PortfolioSection';
 import Footer from '@/components/sections/Footer';
+import MobileHeader from '@/components/sections/MobileHeader';
 
 /**
  * Página principal del portafolio.
- * Layout de tres columnas:
- * - Izquierda: menú lateral fijo con info personal
- * - Centro: contenido con scroll vertical
- * - Derecha: barra lateral fija con redes sociales
+ * Desktop: 3 columnas (sidebar izq fijo + contenido scroll + sidebar der fijo)
+ * Móvil: columna única con header compacto en la parte superior
  */
 export default function Home() {
   return (
     <div className="flex h-screen overflow-hidden bg-bg-primary">
 
-      {/* ── Menú lateral izquierdo fijo ── */}
-      <LeftSidebar />
+      {/* Sidebar izquierdo — solo visible en pantallas grandes */}
+      <div className="hidden lg:block">
+        <LeftSidebar />
+      </div>
 
-      {/* ── Contenido central con scroll ── */}
+      {/* Contenido central */}
       <main className="flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-6 py-8">
+
+        {/* Header compacto — solo visible en móvil */}
+        <div className="lg:hidden border-b border-bg-border bg-bg-secondary">
+          <MobileHeader />
+        </div>
+
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
           <ProfileSection />
           <KnowledgeSection />
           <EducationSection />
@@ -31,8 +38,10 @@ export default function Home() {
         </div>
       </main>
 
-      {/* ── Barra lateral derecha fija ── */}
-      <RightSidebar />
+      {/* Sidebar derecho — solo visible en pantallas grandes */}
+      <div className="hidden lg:block">
+        <RightSidebar />
+      </div>
 
     </div>
   );

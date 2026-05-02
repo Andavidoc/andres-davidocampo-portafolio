@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import { Icon } from '@iconify/react';
 import { personalInfo, socialLinks, languages, programmingLanguages, skills } from '@/data/portfolioData';
@@ -79,12 +80,21 @@ export default function MobileHeader() {
 
           {/* Información personal */}
           <div className="flex flex-col items-center text-center gap-3">
-            <div className="w-16 h-16 rounded-full overflow-hidden
-                            ring-2 ring-accent-cyan/40 ring-offset-2 ring-offset-bg-secondary
-                            bg-gradient-to-br from-accent-purple/40 to-accent-cyan/20
-                            flex items-center justify-center
-                            font-display font-bold text-text-primary text-lg">
-              AO
+            <div className="relative w-16 h-16 rounded-full overflow-hidden
+                            ring-2 ring-accent-cyan/40 ring-offset-2 ring-offset-bg-secondary">
+              {/* Fallback iniciales detrás de la foto */}
+              <div className="absolute inset-0 flex items-center justify-center
+                              bg-gradient-to-br from-accent-purple/40 to-accent-cyan/20
+                              font-display font-bold text-text-primary text-lg z-0">
+                AO
+              </div>
+              {/* Foto real encima */}
+              <Image
+                src={personalInfo.photo}
+                alt={personalInfo.name}
+                fill
+                className="object-cover z-10"
+              />
             </div>
             <div>
               <p className="font-display font-bold text-text-primary text-sm">

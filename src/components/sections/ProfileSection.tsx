@@ -26,19 +26,20 @@ export default function ProfileSection() {
           {/* Foto en fondo blanco */}
           <div className="relative w-28 h-28 rounded-2xl overflow-hidden
                           bg-white shadow-[0_0_30px_rgba(0,212,255,0.15)] shrink-0">
+            {/* Fallback con iniciales detras de la foto */}
+            <div className="absolute inset-0 flex items-center justify-center
+                            bg-gradient-to-br from-slate-100 to-slate-200
+                            text-slate-700 font-display font-bold text-3xl z-0">
+              AO
+            </div>
+            {/* Foto real encima del fallback */}
             <Image
               src={personalInfo.photo}
               alt={`Foto de ${personalInfo.name}`}
               fill
-              className="object-cover"
+              className="object-cover z-10"
               priority
             />
-            {/* Fallback con iniciales */}
-            <div className="absolute inset-0 flex items-center justify-center
-                            bg-gradient-to-br from-slate-100 to-slate-200
-                            text-slate-700 font-display font-bold text-3xl">
-              AO
-            </div>
           </div>
 
           {/* Texto del perfil */}

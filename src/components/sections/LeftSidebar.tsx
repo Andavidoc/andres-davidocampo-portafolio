@@ -1,4 +1,5 @@
 'use client';
+
 import { Icon } from '@iconify/react';
 import Image from 'next/image';
 import LanguageItem from '@/components/molecules/LanguageItem';
@@ -27,22 +28,19 @@ export default function LeftSidebar() {
           {/* Foto de perfil */}
           <div className="relative w-20 h-20 rounded-full overflow-hidden
                           ring-2 ring-accent-cyan/40 ring-offset-2 ring-offset-bg-secondary">
+            {/* Fallback de iniciales detras de la foto */}
+            <div className="absolute inset-0 flex items-center justify-center
+                            bg-gradient-to-br from-accent-purple/40 to-accent-cyan/20
+                            text-text-primary font-display font-bold text-xl z-0">
+              AO
+            </div>
+            {/* Foto real encima del fallback */}
             <Image
               src={personalInfo.photo}
               alt={`Foto de ${personalInfo.name}`}
               fill
-              className="object-cover"
-              onError={(e) => {
-                // Fallback: muestra las iniciales si no hay imagen
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
+              className="object-cover z-10"
             />
-            {/* Fallback de iniciales */}
-            <div className="absolute inset-0 flex items-center justify-center
-                            bg-gradient-to-br from-accent-purple/40 to-accent-cyan/20
-                            text-text-primary font-display font-bold text-xl">
-              AO
-            </div>
           </div>
 
           {/* Nombre */}

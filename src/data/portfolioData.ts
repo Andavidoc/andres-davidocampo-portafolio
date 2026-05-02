@@ -192,7 +192,10 @@ export const projects: Project[] = [
       'Portafolio personal desarrollado para la materia Ingeniería Web de la Universidad de Antioquia. Implementa Atomic Design con componentes reutilizables, dark mode, animaciones CSS, modales interactivos y scroll horizontal. Desplegado en Vercel.',
     image: '/projects/udea.jpg',
     technologies: ['NextJS', 'TypeScript', 'TailwindCSS', 'Vercel'],
-    liveUrl: 'https://andres-ocampo.vercel.app',
+    liveUrl: 'https://andres-davidocampo.vercel.app',
+    additionalLinks: [
+      { label: 'Repositorio Portafolio', url: 'https://github.com/202601-Ingenieria-Web/Andres-DavidOcampo-Portafolio' },
+    ],
   },
 ];
 

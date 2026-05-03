@@ -2,7 +2,7 @@
 
 Portafolio web personal desarrollado como Proyecto Evaluativo 1 (25%) para la materia **Ingeniería Web** de la Universidad de Antioquia.
 
-🔗 **Demo en vivo:** [andres-ocampo.vercel.app](https://andres-ocampo.vercel.app)
+🔗 **Demo en vivo:** [andres-davidocampo.vercel.app](https://andres-davidocampo.vercel.app/)
 
 ---
 

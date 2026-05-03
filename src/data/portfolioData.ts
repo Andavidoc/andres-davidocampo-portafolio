@@ -194,7 +194,8 @@ export const projects: Project[] = [
     technologies: ['NextJS', 'TypeScript', 'TailwindCSS', 'Vercel'],
     liveUrl: 'https://andres-davidocampo.vercel.app',
     additionalLinks: [
-      { label: 'Repositorio Portafolio', url: 'https://github.com/202601-Ingenieria-Web/Andres-DavidOcampo-Portafolio' },
+      { label: 'Repositorio Portafolio Inge-Web', url: 'https://github.com/202601-Ingenieria-Web/Andres-DavidOcampo-Portafolio' },
+      { label: 'Repositorio Portafolio Personal', url: 'https://github.com/Andavidoc/andres-davidocampo-portafolio' },
     ],
   },
 ];
